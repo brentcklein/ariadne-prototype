@@ -24,10 +24,11 @@ def buhbye(*_):
     return {"I": "am not a string"}
 
 
-# TODO Incorrect type returned. Checked with annotation.
+# Incorrect type returned. mypy sees no errors. GraphQL returns error on method call
 @query.field("farewell")
-def solong(*_):
-    return None
+def solong(*_) -> object:
+    result: object = {"I": "am an object"}
+    return result
 
 
 schema = make_executable_schema(type_defs, query)
