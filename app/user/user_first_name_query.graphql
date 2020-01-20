@@ -1,0 +1,6 @@
+  query userFirstName {
+      me {
+          firstName
+      }
+  }
+  

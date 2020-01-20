@@ -1,0 +1,7 @@
+{
+  "schema": "http://localhost:8000",
+  "endpoint": "http://localhost:8000",
+  "documents": "./**/*.graphql",
+  "custom_http_headers": {"X-Xom-User-ID": "08AD0"},
+  "custom_header": ""
+}

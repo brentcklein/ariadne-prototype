@@ -3,6 +3,7 @@ from ariadne.asgi import GraphQL
 
 from app.status import get_current_status as get_current_status_from_mongo
 from app.status import set_current_status as set_current_status_in_mongo
+from app.user.index import get_user_first_name
 
 query = QueryType()
 mutation = MutationType()
@@ -57,7 +58,9 @@ def addInts(a, b):
 # Correct type returned
 @query.field("hello")
 def resolve_hello(parent, info):
-    return f"heyo, dude!"
+    name = get_user_first_name()
+    name = name if name is not None else "anonymous person"
+    return f"Hello, {name}, welcome to GraphQL!"
 
 
 @query.field("echo")
