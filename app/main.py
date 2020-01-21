@@ -88,13 +88,13 @@ def current_status(*_):
     return get_current_status_from_mongo()
 
 
-@mutation.field("setCurrentStatus")
-def set_current_status(*_, info, input):
+@mutation.field("setStatus")
+def set_current_status(*_, input):
     # TODO: check info for a userId and raise an Exception if not
     set_current_status_in_mongo(input["status"])
     return {"status": input["status"]}
 
 
-schema = make_executable_schema(type_defs, query)
+schema = make_executable_schema(type_defs, query, mutation)
 
 app = GraphQL(schema, debug=True)
