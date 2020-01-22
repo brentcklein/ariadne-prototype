@@ -1,0 +1,39 @@
+type Query {
+    """
+    Use strings like this to document your methods.
+    This description will automatically be reflected into the introspection schema for tooling.
+    This method will greet you by name if you're logged in, otherwise greet you as anonymous.
+
+    If the user service is not available, this method will fail.
+    """
+    hello: String
+
+    echo(s: String): String
+
+    fail: String
+
+    """
+    Add two integers together.
+    """
+    add(a: Int!, b: Int!): Int!
+
+    """
+    The current world status, as determined by users. This may be null in normal operation.
+    """
+    currentStatus: String
+}
+
+input SetStatusInput {
+    status: String
+}
+
+type SetStatusPayload {
+    status: String
+}
+
+type Mutation {
+    """
+    Set the current world status. This method is only available to logged-in users.
+    """
+    setStatus(input: SetStatusInput!): SetStatusPayload
+}
