@@ -1,4 +1,4 @@
-aiohttp==3.6.2
+aiohttp==3.7.4
 argh==0.26.2
 ariadne==0.9.0
 ariadne-extensions==0.1.5
